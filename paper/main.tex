@@ -12,10 +12,11 @@
 \usepackage{url}
 
 \graphicspath{{../figures/}{figures/}}
+\urldef{\repolink}\url{https://github.com/Rhriti/sequential-boxing-judging}
 
 \begin{document}
 
-\title{Sequential Prediction of Professional Boxing Round Outcomes: Evaluating Scorecard State and Recurrent Memory Beyond Punch Statistics}
+\title{Sequential Prediction of Professional Boxing Round Outcomes: Evaluating Scorecard State and Recurrent Memory Beyond Punch Statistics\thanks{Code and result tables: \repolink.}}
 
 \author{\IEEEauthorblockN{Hritij Rana}
 \IEEEauthorblockA{\textit{Department of Computer Science and Engineering} \\
@@ -261,7 +262,7 @@ Several limitations should be noted:
 \end{itemize}
 
 \section{Conclusion}
-This paper presents the first large-scale empirical evaluation of sequential bias and machine learning round prediction in professional boxing. Using 13,776 judge-rounds, we confirm that ringside judges exhibit pronounced compensatory catch-up bias ($H_1$: $\beta = -0.3016$), but show that this bias significantly attenuates during championship rounds ($H_2$ refuted, $\beta = +0.0990$). Furthermore, our supervised machine learning benchmark demonstrates that while sequential scorecard state provides predictive value, gradient boosted trees outperform causal deep sequence models on held-out bouts. These findings offer important empirical foundations for regulatory commissions considering automated AI judging aids and open scoring reforms.
+This paper presents the first large-scale empirical evaluation of sequential bias and machine learning round prediction in professional boxing. Using 13,776 judge-rounds, we confirm that ringside judges exhibit pronounced compensatory catch-up bias ($H_1$: $\beta = -0.3016$), but show that this bias significantly attenuates during championship rounds ($H_2$ refuted, $\beta = +0.0990$). Furthermore, our supervised machine learning benchmark demonstrates that while sequential scorecard state provides predictive value, gradient boosted trees outperform causal deep sequence models on held-out bouts. These findings offer important empirical foundations for regulatory commissions considering automated AI judging aids and open scoring reforms. Code, trained-model summaries, and figure scripts are available at \repolink.
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}
