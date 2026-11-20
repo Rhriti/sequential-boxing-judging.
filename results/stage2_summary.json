@@ -1,0 +1,83 @@
+{
+  "n_obs": 13776,
+  "models": {
+    "M0_objective": {
+      "formula": "y ~ p_hat + C(judge_id) + C(bout_id)",
+      "llf": -4991.776902533838,
+      "aic": 12191.553805067677,
+      "bic": 20505.42808730861,
+      "coefficients": {
+        "p_hat": {
+          "coef": 6.955123465262259,
+          "se": 0.28760649875370825,
+          "z": 24.182775755767178,
+          "pvalue": 3.3771111839839385e-129
+        }
+      }
+    },
+    "M1_sequential": {
+      "formula": "y ~ p_hat + delta_score + C(judge_id) + C(bout_id)",
+      "llf": -4828.8687797383245,
+      "aic": 11867.737559476649,
+      "bic": 20189.142524944247,
+      "coefficients": {
+        "p_hat": {
+          "coef": 7.010446144102651,
+          "se": 0.29033463389580505,
+          "z": 24.14608980690382,
+          "pvalue": 8.207339656435975e-129
+        },
+        "delta_score": {
+          "coef": -0.26932687564906166,
+          "se": 0.0225028349928873,
+          "z": -11.968575325473015,
+          "pvalue": 5.191234031802661e-33
+        }
+      }
+    },
+    "M2_full": {
+      "formula": "y ~ p_hat + delta_score + delta_x_late + C(judge_id) + C(bout_id)",
+      "llf": -4817.0156137627255,
+      "aic": 11846.031227525451,
+      "bic": 20174.966876219718,
+      "coefficients": {
+        "p_hat": {
+          "coef": 7.055354034150216,
+          "se": 0.2935261764307074,
+          "z": 24.03654120373067,
+          "pvalue": 1.1543764239174273e-127
+        },
+        "delta_score": {
+          "coef": -0.3015764332119599,
+          "se": 0.023872889535128426,
+          "z": -12.632590318327278,
+          "pvalue": 1.3960569747488975e-36
+        },
+        "delta_x_late": {
+          "coef": 0.09902873365678094,
+          "se": 0.025721124624724506,
+          "z": 3.8500934582615134,
+          "pvalue": 0.00011807276240346597
+        }
+      }
+    }
+  },
+  "lr_tests": {
+    "M0_vs_M1_delta_score": {
+      "lr_stat": 325.81624559102784,
+      "df": 1,
+      "pvalue": 7.834874420456915e-73
+    },
+    "M1_vs_M2_delta_x_late": {
+      "lr_stat": 23.70633195119808,
+      "df": 1,
+      "pvalue": 1.1221273587274318e-06
+    },
+    "M0_vs_M2": {
+      "lr_stat": 349.5225775422259,
+      "df": 2,
+      "pvalue": 1.265134317563016e-76
+    }
+  },
+  "interpretation": "M2 adds lagged scorecard margin (delta_score) and its interaction with championship rounds (delta_x_late) atop duBoef-style p_hat, with judge and bout fixed effects and bout-clustered SEs. Supports H1 (compensatory catch-up). Late-round interaction is significant but opposite proposal H2: catch-up is weaker in rounds 11-12 (beta2 > 0).."
+}

@@ -1,0 +1,28 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.npz
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+
+# Raw dataset files and large panels (not redistributed)
+data/
+*.xlsx
+*.xls
+pairedData.csv
+
+# LaTeX build artifacts
+paper/*.aux
+paper/*.log
+paper/*.bbl
+paper/*.blg
+paper/*.out
+paper/*.toc
+paper/*.synctex.gz
+paper/*.fdb_latexmk
+paper/*.fls

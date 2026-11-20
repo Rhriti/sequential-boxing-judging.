@@ -1,0 +1,43 @@
+{
+  "n_obs": 13776,
+  "n_sequences": 2061,
+  "architecture": {
+    "x_dim": 30,
+    "hidden": 16,
+    "n_params": 3214,
+    "causality": "prediction at round r uses LSTM state after rounds 1..r-1 only"
+  },
+  "cbsn": {
+    "llf": -5355.2686195373535,
+    "aic": 17138.537239074707,
+    "accuracy": 0.818815331010453
+  },
+  "stage2_m2": {
+    "llf": -4817.0156137627255,
+    "aic": 11846.031227525451,
+    "accuracy": 0.8324622531939605
+  },
+  "delta_vs_m2": {
+    "llf": -538.253005774628,
+    "aic": 5292.506011549256,
+    "accuracy": -0.013646922183507493
+  },
+  "attention": {
+    "early_rounds_1_3": {
+      "n": 3777,
+      "w_historical_mean": 0.41778430458392996,
+      "w_immediate_mean": 0.5822156960130338
+    },
+    "championship_rounds_11_12": {
+      "n": 984,
+      "w_historical_mean": 0.3074376037849749,
+      "w_immediate_mean": 0.692562398599173
+    },
+    "paired_bout_delta": {
+      "n_bouts": 179,
+      "mean_late_minus_early": -0.06374113799247967,
+      "t_stat": -3.3953729924549982,
+      "pvalue": 0.0008451197990083726
+    }
+  }
+}

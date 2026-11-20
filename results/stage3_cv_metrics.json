@@ -1,0 +1,87 @@
+{
+  "n_obs": 13776,
+  "n_sequences": 2061,
+  "n_splits": 5,
+  "split": "GroupKFold on one row per bout_id; rounds and all judges of a bout stay together",
+  "architecture": {
+    "x_dim": 30,
+    "hidden": 16,
+    "embedding_dim": 4,
+    "dropout": 0.3,
+    "weight_decay": 0.0001,
+    "objective_skip": true,
+    "unknown_judge_index": 0,
+    "causality": "prediction at round r uses LSTM state after rounds 1..r-1 only"
+  },
+  "folds": [
+    {
+      "fold": 0,
+      "n_test": 2661,
+      "n_correct": 2053,
+      "log_likelihood": -1272.765645803233,
+      "log_loss": 0.4783035121395088,
+      "accuracy": 0.7715144682450207,
+      "n_test_bouts": 138,
+      "n_train_bouts": 549
+    },
+    {
+      "fold": 1,
+      "n_test": 2754,
+      "n_correct": 2089,
+      "log_likelihood": -1334.1731355370182,
+      "log_loss": 0.4844492140657292,
+      "accuracy": 0.7585330428467684,
+      "n_test_bouts": 138,
+      "n_train_bouts": 549
+    },
+    {
+      "fold": 2,
+      "n_test": 2697,
+      "n_correct": 2053,
+      "log_likelihood": -1313.656497278687,
+      "log_loss": 0.48708064415227553,
+      "accuracy": 0.7612161661104931,
+      "n_test_bouts": 137,
+      "n_train_bouts": 550
+    },
+    {
+      "fold": 3,
+      "n_test": 2901,
+      "n_correct": 2217,
+      "log_likelihood": -1350.3852022916535,
+      "log_loss": 0.4654895561157027,
+      "accuracy": 0.7642192347466391,
+      "n_test_bouts": 137,
+      "n_train_bouts": 550
+    },
+    {
+      "fold": 4,
+      "n_test": 2763,
+      "n_correct": 2077,
+      "log_likelihood": -1384.7232983434806,
+      "log_loss": 0.5011665936820414,
+      "accuracy": 0.7517191458559537,
+      "n_test_bouts": 137,
+      "n_train_bouts": 550
+    }
+  ],
+  "pooled": {
+    "n": 13776,
+    "log_likelihood": -6655.703779254072,
+    "log_loss": 0.4831376146380714,
+    "accuracy": 0.7613966318234611,
+    "aic_mean": 12310.681511701629,
+    "bic_mean": 40873.80152934187
+  },
+  "ablation": {
+    "definition": "Test-fold rounds where the trailing corner is scored correctly and the model assigns that corner a higher win probability than objective_skip. delta_trail is that probability minus the same probability with h_{r-1} set to 0. Positive means erasing memory lowered the catch-up probability.",
+    "n": 1476,
+    "mean_delta": 0.07300481667267639,
+    "ci95": [
+      0.06689661277180824,
+      0.07911302057354454
+    ],
+    "t_stat": 23.444587564281818,
+    "pvalue": 1.4159441361869505e-103
+  }
+}
